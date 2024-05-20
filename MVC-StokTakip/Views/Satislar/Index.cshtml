@@ -1,0 +1,62 @@
+﻿@model MVC_StokTakip.Models.Entity_Framework.TBL_SATISLAR
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@*MODAL POPUP SATIŞ EKRANI İŞLEMLERİ*@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Ekranına Hoş Geldiniz</h2>
+            </div>
+            <form method="post" action="/Satislar/YeniSatis">
+                <div class="modal-body">
+                    <label>Ürün Adı:</label>
+                    @Html.TextBoxFor(m => m.URUN, new { @class = "form-control", required = "required" })
+                    <br />
+                    <label>Müşteri Adı Soyadı:</label>
+                    @Html.TextBoxFor(m => m.MUSTERI, new { @class = "form-control", required = "required" })
+                    <br />
+                    <label>Adet:</label>
+                    @Html.TextBoxFor(m => m.ADET, new { @class = "form-control", id = "adet", required = "required" })
+                    <br />
+                    <label>Fiyat:</label>
+                    @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control", id = "fiyat", required = "required" })
+                    <br />
+                    <label>TOPLAM:</label>
+                    <input type="text" name="toplam" id="toplam" class="form-control" readonly />
+                    <br />
+                    <button type="submit" class="btn btn-info">Satış Yap</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Adet ve fiyat alanlarının değerlerini alarak toplamı hesaplayan fonksiyon
+    function hesapla() {
+        var adet = document.getElementById("adet").value;
+        var fiyat = document.getElementById("fiyat").value;
+        var toplam = adet * fiyat;
+        document.getElementById("toplam").value = toplam;
+    }
+
+    // Sayfa yüklendiğinde hesapla fonksiyonunu çağıralım
+    window.onload = hesapla;
+
+    // Adet ve fiyat alanlarında herhangi bir değişiklik olduğunda hesapla fonksiyonunu tekrar çağıralım
+    document.getElementById("adet").addEventListener("input", hesapla);
+    document.getElementById("fiyat").addEventListener("input", hesapla);
+</script>
+
+

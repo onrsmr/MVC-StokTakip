@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Bize Ulaşın
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Bize Ulaşın</h2>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <label>Ad:</label>
+                    <input type="text" name="Urun" class="form-control" required="" maxlength="15" />
+                    <br />
+                    <label>Soyad:</label>
+                    <input type="text" name="marka" class="form-control" required="" maxlength="15" />
+                    <br />
+                    <label>E-posta Adresi:</label>
+                    <input type="email" name="musteri" class="form-control" required="" placeholder="example@example.com" />
+                    <br />
+                    <label>GSM No:</label>
+                    <input type="tel" name="telefon" class="form-control" required="" placeholder="5321234567" />
+                    <br />
+                    <label>Konu:</label>
+                    <input type="text" name="name" class="form-control custom-input" required="" maxlength="100" placeholder="Maksimum 100 karakterle sınırlıdır."/>
+                    <br />
+                    <button class="btn btn-info">Gönder</button>
+                    <br />
+                    <br />
+                    <p style="font-size: 12px; text-align: center">
+                        Bu ASP.Net MCV-StokTakip projesi Onur Sümer tarafından 2024 senesinde yapılmıştır | Onur Sümer
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
